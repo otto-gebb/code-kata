@@ -57,7 +57,7 @@ let getShipSquares (g: Game) (i: ShipId): Set<int*int> =
     |> Set.ofList
 
 let isRepeated (r: MoveResult) =
-    match r with | Repeated _ -> true | _ -> false
+    match r with | RepeatedMove _ -> true | _ -> false
 
 let isMiss (s: SquareState) =
     match s with | Miss _ -> true | _ -> false

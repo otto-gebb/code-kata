@@ -42,7 +42,7 @@ module Program =
         let square, repeated =
             match r with
             | NewMove square -> square, false
-            | Repeated square -> square, true
+            | RepeatedMove square -> square, true
         let shipInfo (ShipId i) =
             let ship = g.Ships.[ShipId i]
             let info = $"ship #{i}, size {ship.Size}"

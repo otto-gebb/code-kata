@@ -18,7 +18,7 @@ type Ship = {
         newShip, newShip.IsSunk
 
 type MoveResult =
-    | Repeated of SquareState
+    | RepeatedMove of SquareState
     | NewMove of SquareState
 
 [<NoEquality>]
@@ -54,7 +54,7 @@ let private hitSquare (g: Game) (coords: int*int) : (MoveResult*Game) =
 
 let makeMove (g: Game) (coords: int*int) : (MoveResult*Game) =
     match Map.tryFind coords g.Board with
-    | Some square -> Repeated square, g
+    | Some square -> RepeatedMove square, g
     | None -> hitSquare g coords
 
 /// Describes a ship when creating a game, see `createGame`.
@@ -64,7 +64,7 @@ let BoardSize = 10
 
 /// Creates an initial game state with the specified ships.
 let createGame (ships : ShipDescription[]) =
-    // TODO: disallow ships whose squares do not form a stright line.
+    // TODO: disallow ships whose squares do not form a straight line.
     if ships |> Array.isEmpty then invalidArg (nameof ships) $"The ship collection was empty."
     let shipsWithLocations =
         ships
