@@ -81,8 +81,7 @@ let createGame (ships : ShipDescription[]) =
                 {Id = ShipId i; Size = size; AliveDeckCount = size }, locations
         )
     let shipObjs, locationLists = Array.unzip shipsWithLocations
-    let addLocation m (coords, shipId) =
-        let i = match shipId with ShipId i -> i
+    let addLocation m (coords, (ShipId i as shipId)) =
         match Map.tryFind coords m with
         | Some (ShipId other) ->
             invalidArg (nameof ships) $"Ship #{i} overlapped with ship #{other} at {coords}."
