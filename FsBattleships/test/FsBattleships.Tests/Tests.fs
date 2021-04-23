@@ -62,7 +62,7 @@ let isRepeated (r: MoveResult) =
 let isMiss (s: SquareState) =
     match s with | Miss _ -> true | _ -> false
 
-let check = Property.check' 500<tests>
+let check = Property.checkWith (PropertyConfig.defaultConfig |> PropertyConfig.withTests 500<tests>)
 
 
 [<Tests>]
