@@ -1,4 +1,4 @@
-# StringMiddle
+# ToyMarkdown
 
 A code kata implementing a toy markdown parser.
 
