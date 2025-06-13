@@ -1,0 +1,11 @@
+@HostAddr = http://localhost:5259
+
+GET {{HostAddr}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{HostAddr}}/weatherforecast/
+Accept: application/json
+
+###
