@@ -1,0 +1,11 @@
+# Set default behavior to automatically normalize line endings.
+* text=auto
+
+# Files that will always have LF line endings on checkout.
+*.sh text eol=lf
+
+# Files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+
+# VerifyTests
+*.verified.txt text eol=lf working-tree-encoding=UTF-8
