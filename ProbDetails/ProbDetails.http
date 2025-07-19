@@ -1,0 +1,23 @@
+@Api_HostAddress = http://localhost:5181
+@Controllers_HostAddress = http://localhost:5188
+
+
+###
+POST {{Api_HostAddress}}/books
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "year": 1925,
+  "author": "F. Scott Fitzgerald"
+}
+
+###
+POST {{Controllers_HostAddress}}/api/books
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "year": 1925,
+  "author": "F. Scott Fitzgerald"
+}
