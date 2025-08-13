@@ -23,7 +23,7 @@ This project demonstrates an issue with Rx.NET and async operations in backgroun
 During application shutdown, the following sequence can occur:
 1. Shutdown is initiated
 2. `TickerSingleton` is disposed
-3. Background workers receive cancellation token
-4. Workers unsubscribe from observables
-5. In-flight async operations continue and try to call disposed `TickerSingleton`
+3. Background worker's cancellation token is triggered
+4. Worker unsubscribes from observable
+5. In-flight async operation continues and tries to call disposed `TickerSingleton`
 6. `ObjectDisposedException` is thrown, robbing the `DoWorkAsync` operation of a chance to complete.
