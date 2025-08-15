@@ -19,7 +19,7 @@ public class RxWorker2 : BackgroundService
         await Observable.Interval(TimeSpan.FromSeconds(1))
             .SelectMany(i => Observable.FromAsync((CancellationToken ct) => DoWorkAsync(i, ct)))
             // This unsubscribes when the cancellation token is triggered, but
-            // it does wait for the task returned by `DoWorkAsync` to complete.
+            // it does not wait for the task returned by `DoWorkAsync` to complete.
             .ToTask(stoppingToken);
     }
 
